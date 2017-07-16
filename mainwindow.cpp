@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "cipherfeistel.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,7 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::ButtonEncode()
 {
-    ui->ButtonEncode->setText("I'm work");
+    CipherFeistel cipherFeistel;
+    QString CipherWord = ui->EditBox->toPlainText();
+    cipherFeistel.CipherAlgoritm(CipherWord.toStdString());
+
+
+    //ui->ButtonEncode->setText();
 }
 
 MainWindow::~MainWindow()

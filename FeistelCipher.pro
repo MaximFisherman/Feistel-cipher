@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    cipherfeistel.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    cipherfeistel.h
 
 FORMS += \
         mainwindow.ui

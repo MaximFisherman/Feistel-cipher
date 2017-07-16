@@ -119,22 +119,5 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>ButtonEncode</sender>
-   <signal>clicked()</signal>
-   <receiver>EditBox</receiver>
-   <slot>selectAll()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>199</x>
-     <y>178</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>80</x>
-     <y>143</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
