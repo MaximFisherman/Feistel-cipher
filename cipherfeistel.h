@@ -13,6 +13,7 @@ private:
 public:
     CipherFeistel(){};
     void CipherAlgoritm(string);
+    string Check32Block(string);
     ~CipherFeistel(){};
 };
 

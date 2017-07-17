@@ -14,8 +14,8 @@ void MainWindow::ButtonEncode()
 {
     CipherFeistel cipherFeistel;
     QString CipherWord = ui->EditBox->toPlainText();
-    cipherFeistel.CipherAlgoritm(CipherWord.toStdString());
 
+    cipherFeistel.CipherAlgoritm(CipherWord.toStdString());
 
     //ui->ButtonEncode->setText();
 }
