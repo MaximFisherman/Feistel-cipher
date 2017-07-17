@@ -9,7 +9,7 @@ class CipherFeistel{
 private:
     string cipherWord;
     string right;
-    static const string CIPHER_KEY;
+    string CIPHER_KEY ={"alebastr"};
 public:
     CipherFeistel(){};
     void CipherAlgoritm(string);
