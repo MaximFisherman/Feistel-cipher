@@ -1,7 +1,9 @@
 #include "cipherfeistel.h"
 #include <vector>
 //Незабыть изменить ключ шифрования при каждой итерации
-
+/*
+Create method Decription when decript massage. Input parametr exit string strENCODE
+*/
 void CipherFeistel::CipherAlgoritm(string str){
     str = Check32Block(str);
 
@@ -23,23 +25,28 @@ void CipherFeistel::CipherAlgoritm(string str){
             left[j]= strASCI[j];
         }
 
-        cout<<"Start right: ";
         for(int j = 0; j < 8; j++){
             right[j] = strASCI[j+8];
-            cout<<right[j]<<" ";
         }
-            cout<<endl;
-        for(int j = 0; j < 4; j++){
+
+        //Encode
+        for(int j = 1; j <= 4; j++){
             for(int j = 0; j < 8; j++){
+                cout<<"Right = "<<right[j]<<endl;
+                cout<<"Left = "<<left[j]<<endl;
                 vector<int> temp_left(&left[0], &left[0] + left.size());
                 temp_left[j] += CIPHER_KEY_INT[j];
+                cout<<"temp_left = "<<temp_left[j]<<endl;
                 right[j] ^= temp_left[j];
+                cout<<"right ^ temp left = "<<right[j]<<endl;
                 left[j] = right[j];
+                cout<<"left = right = "<<left[j]<<endl;
                 right[j] = temp_left[j];
                 cout<<right[j]<<" ";
             }
             cout<<endl;
         }
+
 
         //Convert Vector to string for output
         string rightString,leftString;
