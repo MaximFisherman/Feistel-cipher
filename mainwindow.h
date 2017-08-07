@@ -20,6 +20,7 @@ private:
 
 private slots:
      void ButtonEncode();
+     void on_ButtonDecode_clicked();
 };
 
 #endif // MAINWINDOW_H

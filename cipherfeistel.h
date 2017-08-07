@@ -9,10 +9,14 @@ class CipherFeistel{
 private:
     string cipherWord;
     string right;
+    int round = 4;
     string CIPHER_KEY ={"alebastr"};
 public:
     CipherFeistel(){};
-    void CipherAlgoritm(string);
+    int F(int, int);
+    string Encode(string);
+    string Decode(string);
+
     string Check32Block(string);
     string ConvertToStringVector(string, vector<int>);
     ~CipherFeistel(){};

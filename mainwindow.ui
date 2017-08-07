@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -30,7 +30,7 @@
      <item>
       <widget class="QTextEdit" name="ResultBox">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
@@ -39,7 +39,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -78,12 +78,6 @@
      </item>
     </layout>
    </widget>
-   <zorder>ButtonEncode</zorder>
-   <zorder>EditBox</zorder>
-   <zorder>horizontalSpacer</zorder>
-   <zorder>ButtonDecode</zorder>
-   <zorder>ResultBox</zorder>
-   <zorder>ButtonDecode</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

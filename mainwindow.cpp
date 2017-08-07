@@ -15,12 +15,19 @@ void MainWindow::ButtonEncode()
     CipherFeistel cipherFeistel;
     QString CipherWord = ui->EditBox->toPlainText();
 
-    cipherFeistel.CipherAlgoritm(CipherWord.toStdString());
-
+    ui->ResultBox->setText(QString::fromStdString(cipherFeistel.Encode(CipherWord.toStdString())));
     //ui->ButtonEncode->setText();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_ButtonDecode_clicked()
+{
+    CipherFeistel cipherFeistel;
+    QString CipherWord = ui->ResultBox->toPlainText();
+
+    cipherFeistel.Decode(CipherWord.toStdString());
 }
