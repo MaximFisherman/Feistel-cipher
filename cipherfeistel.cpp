@@ -9,6 +9,17 @@ int CipherFeistel::F(int sublock, int key){
     return sublock + key;
 }
 
+string CipherFeistel::ModifiCipherKey(string CIPHER_KEY){
+    while(CIPHER_KEY.size()-2 != i)
+   {
+       char temp =CIPHER_KEY[i];
+       CIPHER_KEY[i] = CIPHER_KEY[CIPHER_KEY.size()-i-1];
+       CIPHER_KEY[CIPHER_KEY.size()-i-1] = temp;
+       i++;
+   }
+    return CIPHER_KEY;
+}
+
 string CipherFeistel::Encode(string str){
     str = Check32Block(str);
     int i = 0;
@@ -36,7 +47,8 @@ string CipherFeistel::Encode(string str){
         }
 
         //Encode
-        for( int i = 1; i <= round; i++ )
+        for( int i = 1; i <= round; i++ ){
+            ModifiCipherKey(CIPHER_KEY_INT);// ДОРАБОТАТЬ ФУНКЦИЮ ИЗМЕНЕНИЯ КЛЮЧА
             for (int j = 0; j < 8; j++)
             {
                 int temp = right[j] ^ F( left[j], CIPHER_KEY_INT[j] );
@@ -44,6 +56,7 @@ string CipherFeistel::Encode(string str){
                 left[j] = temp;
                 cout<<right[j]<<" "<<left[j]<<endl;
             }
+        }
         cout<<"End encode"<<endl;
 
         //Convert Vector to string for output

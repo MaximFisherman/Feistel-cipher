@@ -13,6 +13,7 @@ private:
     string CIPHER_KEY ={"alebastr"};
 public:
     CipherFeistel(){};
+    string ModifiCipherKey( string );
     int F(int, int);
     string Encode(string);
     string Decode(string);
