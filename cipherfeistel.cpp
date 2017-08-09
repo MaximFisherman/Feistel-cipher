@@ -1,6 +1,7 @@
 #include "cipherfeistel.h"
 #include <vector>
-//Незабыть изменить ключ шифрования при каждой итерации
+#include <algorithm>
+
 /*
 Create method Decription when decript massage. Input parametr exit string strENCODE
 */
@@ -9,16 +10,6 @@ int CipherFeistel::F(int sublock, int key){
     return sublock + key;
 }
 
-string CipherFeistel::ModifiCipherKey(string CIPHER_KEY){
-    while(CIPHER_KEY.size()-2 != i)
-   {
-       char temp =CIPHER_KEY[i];
-       CIPHER_KEY[i] = CIPHER_KEY[CIPHER_KEY.size()-i-1];
-       CIPHER_KEY[CIPHER_KEY.size()-i-1] = temp;
-       i++;
-   }
-    return CIPHER_KEY;
-}
 
 string CipherFeistel::Encode(string str){
     str = Check32Block(str);
@@ -48,13 +39,12 @@ string CipherFeistel::Encode(string str){
 
         //Encode
         for( int i = 1; i <= round; i++ ){
-            ModifiCipherKey(CIPHER_KEY_INT);// ДОРАБОТАТЬ ФУНКЦИЮ ИЗМЕНЕНИЯ КЛЮЧА
             for (int j = 0; j < 8; j++)
             {
                 int temp = right[j] ^ F( left[j], CIPHER_KEY_INT[j] );
                 right[j] = left[j];
                 left[j] = temp;
-                cout<<right[j]<<" "<<left[j]<<endl;
+                //cout<<right[j]<<" "<<left[j]<<endl;
             }
         }
         cout<<"End encode"<<endl;
@@ -98,14 +88,15 @@ string CipherFeistel::Decode(string strEncode){
         }
 
         //Decode
-        for ( i = round; i >= 1; i-- )
+        for ( int i = 1; i <= round; i++ ){
             for (int j = 0; j < 8; j++)
             {
                 int temp = left[j] ^ F( right[j], CIPHER_KEY_INT[j] );
                 left[j] = right[j];
                 right[j] = temp;
-                cout<<right[j]<<" "<<left[j]<<endl;
+                //cout<<right[j]<<" "<<left[j]<<endl;
             }
+        }
         cout<<"End decode"<<endl;
 
         //Convert Vector to string for output
